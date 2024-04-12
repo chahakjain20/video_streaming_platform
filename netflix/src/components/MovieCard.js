@@ -1,9 +1,10 @@
 import React from 'react'
+import { TMDB_IMG_URL } from '../utils/constant'
 
-const MovieCard = () => {
+const MovieCard = ({ posterPath}) => {
   return (
     <div className='w-48 pr-2'>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrLx5ulxan9B_qNbh8RSeAYzfmDD7Qi0Baow&s" alt="movie-banner" />
+        <img src={`${ TMDB_IMG_URL}/${posterPath}`}alt="movie-banner" />
     </div>
   )
 }

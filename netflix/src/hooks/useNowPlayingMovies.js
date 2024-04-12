@@ -1,17 +1,15 @@
 import axios from "axios";
 import { getNowPlayingMovies } from "../redux/movieSlice";
-import { Now_Playing_Movies,options } from "../utils/constant";
-import { useDispatch } from "react-redux";
+import { Now_Playing_Movie, options } from "../utils/constant";
+import {useDispatch} from "react-redux";
 
-const useNowPlayingMovies =async ()=>{
+const useNowPlayingMovies = async () => {
     const dispatch = useDispatch();
     try {
-      const res = await axios.get(Now_Playing_Movies,options);
-      console.log(res);
-      dispatch(getNowPlayingMovies(res.data.results))
+        const res = await axios.get(Now_Playing_Movie, options);
+        dispatch(getNowPlayingMovies(res.data.results));
     } catch (error) {
-      console.log(error);
+        console.log(error);
     }
-  }
-
-  export default useNowPlayingMovies;
+}
+export default useNowPlayingMovies;

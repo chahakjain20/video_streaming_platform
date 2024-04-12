@@ -6,7 +6,7 @@ import movieReducer from "./movieSlice";
 const store = configureStore({
     reducer:{
        app:userReducer,
-       movie:movieReducer
+       movie:movieReducer,
         // searchMovie:searchSlice
     }
 });
