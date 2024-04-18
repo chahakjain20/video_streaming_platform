@@ -6,9 +6,12 @@ import { API_END_POINT } from '../utils/constant';
 import { setUser } from '../redux/userSlice';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { setToggle } from '../redux/movieSlice';
+
 const Header = () => {
     const user = useSelector((store)=>store.app.user);
     // console.log(user);
+    const toggle = useSelector((store)=>store.movie.toggle);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -25,6 +28,10 @@ const Header = () => {
             console.log(error);
         }
     }
+
+    const toggleHandler =()=>{
+        dispatch(setToggle());
+    }
     return (
        
         <div className='absolute z-10 flex w-[100%] items-center justify-between px-6 bg-gradient-to-b from-black'>
@@ -36,7 +43,7 @@ const Header = () => {
                     <h1 className='text-lg font-medium text-white'>{user.fullName}</h1>
                     <div className='ml-4'>
                         <button className='bg-red-800 text-white px-4 py-2' onClick={logoutHandler}>Logout</button>
-                        <button className='bg-red-800 text-white px-4 py-2 ml-2'>Search Movie</button>
+                        <button className='bg-red-800 text-white px-4 py-2 ml-2' onClick={toggleHandler}>{toggle ? "Home":"Search Movie"}</button>
                     </div>
     
                 </div>
